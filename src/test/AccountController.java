@@ -1,10 +1,8 @@
-package com.iu.account;
+package test;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import com.iu.accountinfo.AccountInfoController;
 import com.iu.accountinfo.AccountInfoDAO;
 import com.iu.bankInput.AccountInput;
 import com.iu.bankView.AccountView;
@@ -12,14 +10,14 @@ import com.iu.bankView.BankView;
 import com.iu.member.MemberDTO;
 
 public class AccountController {
-	private Scanner sc;
+/*	private Scanner sc;
 	private AccountDAO accountDAO;
 	private AccountDTO accountDTO;
 	private List<AccountDTO> accountDTOs;
 	private AccountInput accountInput;
 	private BankView bankView;
 	private AccountView accountView;
-	private AccountInfoController accountInfoController;
+	private AccountInfoDAO accountInfoDAO;
 
 	public AccountController() {
 		sc = new Scanner(System.in);
@@ -27,7 +25,7 @@ public class AccountController {
 		accountInput = new AccountInput();
 		bankView = new BankView();
 		accountView = new AccountView();
-		accountInfoController = new AccountInfoController();
+		accountInfoDAO = new AccountInfoDAO();
 		// accountDTO = null;
 		// accountDTOs = null;
 	}
@@ -73,25 +71,40 @@ public class AccountController {
 					accountView.View(accountDTOs);
 				}
 				break;
+
 			case 3:
-
-				accountDTO = new AccountDTO();
 				try {
+					
 					accountDTOs = accountDAO.accountSelect(memberDTO);
-					if (accountDTOs.size() == 0)
-						System.out.println("만들어진 계좌가 없습니다.");
-					else {
-						accountView.View(accountDTOs);
-						System.out.print("계좌 선택 : ");
-						int choice = sc.nextInt();
-						accountInfoController.start(accountDTOs.get(choice - 1).getAccountNumber());
-					}
-
+					accountView.View(accountDTOs);
+					System.out.print("계좌를 선택하세요 : ");
+					int num = sc.nextInt();
+					String myAcNum = accountDTOs.get(num - 1).getAccountNumber();
+					System.out.print("받으실 분의 계좌번호를 입력하세요 : ");
+					String yourAcNum = sc.next();
+					String name = accountInfoDAO.AccountCheck(yourAcNum);
+					System.out.println("예금주 : " + name);
+					System.out.println("1. 확인");
+					System.out.println("2. 취소");
+					int choice = sc.nextInt();
+					if (choice == 1) {
+						System.out.print("입금하실 금액을 입력하세요 : ");
+						int deposit = sc.nextInt();
+						if (deposit <= accountDTOs.get(num - 1).getAccountBalance()) {
+							int result = accountInfoDAO.income(deposit, yourAcNum, myAcNum);
+							if (result > 0)
+								System.out.println("입금 완료");
+							else
+								System.out.println("입금 실패");
+						}
+						else
+							System.out.println("잔액 부족");
+					} else
+						break;
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-
 				break;
 
 			default:
@@ -100,5 +113,5 @@ public class AccountController {
 			}
 		}
 
-	}
+	}*/
 }

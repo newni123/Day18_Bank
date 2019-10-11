@@ -3,19 +3,19 @@ package com.iu.accountinfo;
 import java.util.Date;
 
 public class AccountInfoDTO {
-	private int tradeNumber;
+	private long tradeNumber;
 	private String accountNumber;
-	private int income;
-	private int accountbalance;
-	private int incomKind;
-	private Date date;
+	private long income;
+	private long accountbalance;
+	private int incomeKind;
+	private Date tradedate;
 
-	public int getTradeNumber() {
+	public long getTradeNumber() {
 		return tradeNumber;
 	}
 
-	public void setTradeNumber(int tradeNumber) {
-		this.tradeNumber = tradeNumber;
+	public void setTradeNumber(long l) {
+		this.tradeNumber = l;
 	}
 
 	public String getAccountNumber() {
@@ -26,36 +26,38 @@ public class AccountInfoDTO {
 		this.accountNumber = accountNumber;
 	}
 
-	public int getIncome() {
+	public long getIncome() {
 		return income;
 	}
 
-	public void setIncome(int income) {
+	public void setIncome(long income) {
 		this.income = income;
 	}
 
-	public int getAccountbalance() {
+	public long getAccountbalance() {
 		return accountbalance;
 	}
 
-	public void setAccountbalance(int accountbalance) {
-		this.accountbalance = accountbalance;
+	public void setAccountbalance(long balance) {
+		this.accountbalance = balance;
 	}
 
-	public int getIncomKind() {
-		return incomKind;
+	public int getIncomeKind() {
+		return incomeKind;
 	}
 
-	public void setIncomKind(int incomKind) {
-		this.incomKind = incomKind;
+	public void setIncomeKind(int incomKind) {
+		this.incomeKind = incomKind;
 	}
 
-	public Date getDate() {
-		return date;
+	public Date getTradedate() {
+		return tradedate;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setTradedate(Date tradedate) {
+		this.tradedate = tradedate;
 	}
+
+	
 
 }
